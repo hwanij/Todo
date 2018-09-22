@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+#rotate_title{
+	color:#2b5787;
+	transform:rotate(-20deg);
+	width: 300px;
+    margin-top: 50px;	
+}
+
+#enroll{
+	color:white;
+	font-size:16px;
+	background-color:#3fc8ff;	
+	padding:3px, 10px, 3px, 10px;
+	float: right;
+	margin-right:50px;
+}
