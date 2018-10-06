@@ -2,11 +2,11 @@ package kr.or.connect.Todo.dto;
 
 public class TodoDto {
 	private Long id;
-	private String name;
-	private String regdate;
 	private String title;
+	private String name;
 	private int sequence;
 	private String type;
+	private String regdate;
 	
 	public TodoDto(String type,Long id ) {
 		super();
@@ -14,26 +14,27 @@ public class TodoDto {
 		this.type = type;
 	}
 	
-	public TodoDto(String name, String title ,int sequence) {
+	public TodoDto(String title, String name ,int sequence) {
 		super();
 		this.name = name;
 		this.sequence = sequence;
 		this.title = title;
 	}
 	
-	public TodoDto(Long id, String name, String regdate, int sequence, String title, String type) {
+	public TodoDto(Long id, String title, String name, int sequence, String type, String regdate) {
 		super();
 		this.id = id;
-		this.name = name;
-		this.regdate = regdate;
-		this.sequence = sequence;
 		this.title = title;
+		this.name = name;
+		this.sequence = sequence;
 		this.type = type;
+		this.regdate = regdate;
+
 	}
 	@Override
 	public String toString() {
-		return "TodoDto [id=" + id + ", name=" + name + ", regdate=" + regdate + ", sequence=" + sequence + ", title="
-				+ title + ", type=" + type + "]";
+		return "TodoDto [id=" + id + ", title=" + title + ", name=" + name + ", sequence=" + sequence + ", type="
+				+ type + ", regdate=" + regdate + "]";
 	}
 
 	public Long getId() {

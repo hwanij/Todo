@@ -1,3 +1,4 @@
+
 package kr.or.connect.Todo.dao;
 
 import java.sql.Connection;
@@ -40,7 +41,7 @@ public class TodoDao {
 	}
 	
 	
-	public TodoDto getTodo(String type) {
+	public TodoDto getTodo(String t_type) {
 		TodoDto dto = null;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -51,16 +52,16 @@ public class TodoDao {
 			conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
 			String sql = "select id, title, name, sequence, type, regdate from todo where type = ? order by regdate desc";
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, type);
+			ps.setString(1, t_type);
 			rs = ps.executeQuery();
 
 			if (rs.next()) {
-				Long id = rs.getLong(1);
-				String title = rs.getString(2);
-				String name = rs.getString(3);
-				int sequence = rs.getInt(4);
-				String dto_type = rs.getString("type");
-				String regdate = rs.getString(6);
+				Long id = rs.getLong("id");
+				String title = rs.getString("title");
+				String name = rs.getString("name");
+				int sequence = rs.getInt("sequence");
+				String type = rs.getString("type");
+				String regdate = rs.getString("regdate");
 				
 				dto = new TodoDto(id, title, name, sequence, type, regdate);
 			}
@@ -108,13 +109,13 @@ public class TodoDao {
 			try (ResultSet rs = ps.executeQuery()) {
 
 				while (rs.next()) {
-					long id = rs.getInt("id");
-					String name = rs.getString(2);
-					String regdate = rs.getString(3);
-					int sequence = rs.getInt(4);
-					String title = rs.getString(5);
-					String type = rs.getString(6);
-					TodoDto dto = new TodoDto(id, name, regdate, sequence, title, type);
+					long id = rs.getLong("id");
+					String title = rs.getString("title");
+					String name = rs.getString("name");
+					int sequence = rs.getInt("sequence");
+					String type = rs.getString("type");
+					String regdate = rs.getString("regdate");
+					TodoDto dto = new TodoDto(id, title, name, sequence, type, regdate);
 					list.add(dto); // list에 반복할때마다 Role인스턴스를 생성하여 list에 추가한다.
 				}
 			} catch (Exception e) {

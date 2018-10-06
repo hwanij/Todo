@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>MainServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>TodoFormServlet</servlet-name>
+  	<display-name>TodoFormServlet</display-name>
+  	<description></description>
+  	<servlet-class>kr.or.connect.Todo.TodoFormServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>MainServlet</servlet-name>
   	<url-pattern>/main</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TodoFormServlet</servlet-name>
+  	<url-pattern>/TodoFormServlet</url-pattern>
   </servlet-mapping>
 </web-app>

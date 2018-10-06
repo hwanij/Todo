@@ -30,11 +30,16 @@ public class MainServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TodoDao dao = new TodoDao();
-		List<TodoDto> list = dao.getTodo();
-
-		for(TodoDto dto : list) {
-			System.out.println(dto);
-		}
+		List<TodoDto> lists = dao.getTodo();
+		
+		request.setAttribute("lists", lists);
+		
+		//Forward to the JSP 
+		request.getRequestDispatcher("./main.jsp").forward(request, response);
+		
+//		for(TodoDto dto : lists) {
+//			System.out.println(dto);
+//		}
 	}
 
 }
