@@ -12,7 +12,7 @@ import java.util.List;
 import kr.or.connect.Todo.dto.TodoDto;
 
 public class TodoDao {
-	private static String dburl = "jdbc:mysql://localhost:3306/connectdb?serverTimezone=Asia/Seoul&useSSL=false";
+	private static String dburl = "jdbc:mysql://localhost:3306/connectdb?serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&useSSL=false";
 	private static String dbUser = "connectuser";
 	private static String dbpasswd = "connect123!@#";
 	
